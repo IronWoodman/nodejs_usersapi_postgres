@@ -7,16 +7,16 @@ const UserSchema = require("./db/entity/userschema").UserSchema;
 
 const users = require("./src/users.js");
 
-const typeorm = require("typeorm");
-typeorm.createConnection({
-    type: "postgres",
-    url: 'postgres://postgres:00000000@localhost/users',
-    synchronize: true,
-    entities: [
-        require("./db/entity/userschema")
-        //__dirname + "./db/entity/*.js"
-    ]
-}).then(async => {   
+// const typeorm = require("typeorm");
+// typeorm.createConnection({
+//     type: "postgres",
+//     url: 'postgres://postgres:00000000@localhost/users',
+//     synchronize: true,
+//     entities: [
+//         require("./db/entity/userschema")
+//         //__dirname + "./db/entity/*.js"
+//     ]
+// }).then(async => {   
 
     const app = express();
     const jsonParser = bodyParser.json();
@@ -46,7 +46,6 @@ typeorm.createConnection({
     app.put("/users", jsonParser, users.update);
     app.delete("/users", jsonParser, users.remove);
 
-    app.listen(3000, function () {
-        console.log("Server started");
-    })
-    }).catch(error => console.log(error));
+    app.listen(3000, () => console.log("Server started"));
+    // })
+    // }).catch(error => console.log(error));

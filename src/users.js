@@ -6,7 +6,7 @@ let getAll = function (req, res) {
     res.send(users);
 };
 
-let add = function (req, res) {
+let add = async (req, res) => {
     if (!req.body) return res.sendStatus(400);
     
     let user = new User();

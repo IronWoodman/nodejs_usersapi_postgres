@@ -1,23 +1,19 @@
-const data = require("../data/data.js")
+const userRepository = require("../db/userRepository.js")
+const User = require("../db/model/user.js").User;
 
 let getAll = function (req, res) {
-    let users = data.getUsers();
+    let users = repository.getUsers();
     res.send(users);
 };
 
 let add = function (req, res) {
     if (!req.body) return res.sendStatus(400);
-
-    let userName = req.body.name;
-    let userAge = req.body.age;    
     
-    let users = data.getUsers();
+    let user = new User();
+    user.name = req.body.name;
+    user.age = req.body.age;
 
-    let id = Math.max.apply(Math, users.map(function(o) { return o.id; }));
-
-    let user = {id: id + 1, name: userName, age: userAge};    
-    users.push(user);
-    data.saveUsers(users);
+    userRepository.addUser(user);
     res.send(user);
 };
 
@@ -30,7 +26,7 @@ let update = function (req, res) {
 
     if (!userId) return res.status(400).send("UserId not defined");
 
-    let users = data.getUsers();
+    let users = repository.getUsers();
     let user;
 
     for (let i = 0; i < users.length; i++)
@@ -47,7 +43,7 @@ let update = function (req, res) {
     user.name = userName;
     user.age = userAge;
 
-    data.saveUsers(users);    
+    repository.saveUsers(users);    
     res.send(user);
 };
 
@@ -58,7 +54,7 @@ let remove = function (req, res) {
 
     if (!userId) return res.status(400).send("UserId not defined");
 
-    let users = data.getUsers();
+    let users = repository.getUsers();
     let index = -1;
     for (let i = 0; i < users.length; i++)
     {
@@ -72,7 +68,7 @@ let remove = function (req, res) {
     if (index == -1) return res.status(400).send("User not found");
 
     users.splice(index, 1)[0];
-    data.saveUsers(users);    
+    repository.saveUsers(users);    
     res.sendStatus(200);
 };
 

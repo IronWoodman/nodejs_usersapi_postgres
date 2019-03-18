@@ -1,4 +1,4 @@
-const EntitySchema = require("typeorn").EntitySchema;
+const EntitySchema = require("typeorm").EntitySchema;
 const User = require("../model/user").User;
 
 module.exports = new EntitySchema({

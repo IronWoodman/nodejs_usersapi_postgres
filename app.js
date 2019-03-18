@@ -5,8 +5,14 @@ const swaggerJSDoc = require("swagger-jsdoc");
 
 const users = require("./src/users.js");
 
+const DbConnection = require("./db/dbConnection");
+var dbconn = new DbConnection();
+dbconn.connect();
+
+
 const app = express();
 const jsonParser = bodyParser.json();
+
 
 const options = {
     definition: {

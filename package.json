@@ -4,7 +4,10 @@
     "dependencies": {
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
+        "pg": "^7.9.0",
+        "reflect-metadata": "^0.1.13",
         "swagger-jsdoc": "^3.2.7",
-        "swagger-ui-express": "^4.0.2"
+        "swagger-ui-express": "^4.0.2",
+        "typeorm": "^0.2.15"
     }
 }

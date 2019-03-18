@@ -1,4 +1,4 @@
-const data = require("./data/data.js")
+const data = require("../data/data.js")
 
 let getAll = function (req, res) {
     let users = data.getUsers();

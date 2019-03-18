@@ -1,5 +1,7 @@
 const fs = require("fs");
 const usersFileName = "./data/users.json";
+const typeorm = require("typeorm");
+const User = require("./model/user").User;
 
 let getUsers = function() {
     let data = fs.readFileSync(usersFileName, "utf-8");
@@ -8,6 +10,12 @@ let getUsers = function() {
 }
 
 let saveUsers = function(users) {
+    var connection = await typeorm.createConnection({
+        type: "postgres",
+        
+    })
+
+
     data = JSON.stringify(users);
     fs.writeFileSync(usersFileName, data);
 }

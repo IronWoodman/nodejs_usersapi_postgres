@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
 
-const users = require("./users.js");
+const users = require("./src/users.js");
 
 const app = express();
 const jsonParser = bodyParser.json();

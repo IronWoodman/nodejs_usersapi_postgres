@@ -1,4 +1,4 @@
-const connection = require("./dbConnection");
+const typeorm = require("typeorm");
 const User = require("./model/user").User;
 
 let getUsers = function() {
@@ -10,7 +10,9 @@ let saveUsers = function(users) {
 }
 
 let addUser = async user => {
-    await connection.getRepository(User);
+    let connection = await typeorm.getConnection();
+
+    let userRepository = await connection.getRepository(User);
     await userRepository.save(user);
     console.log(`Add user completed:${JSON.stringify(user)}`);
 }

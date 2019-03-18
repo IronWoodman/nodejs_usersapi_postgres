@@ -1,0 +1,10 @@
+{
+    "name": "usersapi",
+    "version": "1.0.0",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "swagger-jsdoc": "^3.2.7",
+        "swagger-ui-express": "^4.0.2"
+    }
+}

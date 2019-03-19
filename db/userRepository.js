@@ -9,12 +9,11 @@ let saveUsers = function(users) {
     console.log("Not implemented");
 }
 
-let addUser = async user => {
-    let connection = await ConnectionManager.getConnection();
-    let userRepository = await connection.getRepository(User);
+let addUser = async user => {        
+    let userRepository = await ConnectionManager.getRepository(User);
     await userRepository.save(user);
     console.log(`Add user completed:${JSON.stringify(user)}`);
-}
+} 
 
 module.exports.addUser = addUser;
 module.exports.getUsers = getUsers;

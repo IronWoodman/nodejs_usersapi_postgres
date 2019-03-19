@@ -7,4 +7,10 @@ module.exports = class ConnectionManager {
         
         return this.connection;
     }
+
+    static async getRepository(entity) { 
+        let connection = await ConnectionManager.getConnection();
+        let repository = await connection.getRepository(entity);
+        return repository;
+    }
 }

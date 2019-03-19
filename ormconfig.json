@@ -1,0 +1,9 @@
+{
+    "name": "default",
+    "type": "postgres",
+    "url": "postgres://postgres:00000000@localhost/users",
+    "synchronize": true,
+    "entities": [
+            "db/entity/*.js"
+        ]
+}

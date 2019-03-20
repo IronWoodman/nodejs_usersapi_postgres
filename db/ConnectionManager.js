@@ -1,6 +1,7 @@
+import "babel-polyfill";
 const typeorm = require("typeorm");
 
-module.exports = class ConnectionManager {
+export class ConnectionManager {
     static async getConnection() {
         if (!this.connection)
             this.connection = await typeorm.createConnection();

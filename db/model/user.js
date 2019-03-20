@@ -1,11 +1,15 @@
-class User {
-    constructor(id, name, age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
-}
+import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-module.exports = {
-    User: User
-};
+@Entity
+export class User {
+
+    @Column
+    id: number;
+
+
+    // constructor(id, name, age) {
+    //     this.id = id;
+    //     this.name = name;
+    //     this.age = age;
+    // }
+}

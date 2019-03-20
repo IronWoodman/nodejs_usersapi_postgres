@@ -9,5 +9,11 @@
         "swagger-jsdoc": "^3.2.7",
         "swagger-ui-express": "^4.0.2",
         "typeorm": "^0.2.15"
+    },
+    "devDependencies": {
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-register": "^6.26.0",
+        "regenerator-runtime": "^0.13.2"
     }
 }
